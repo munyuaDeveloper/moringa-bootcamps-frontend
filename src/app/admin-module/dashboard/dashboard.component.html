@@ -1,0 +1,42 @@
+
+<app-nav-bar></app-nav-bar>
+<div id="layoutSidenav">
+  <div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
+      <div class="sb-sidenav-menu">
+        <div class="nav pt-5">
+          <a class="nav-link" routerLink="/admin/home" routerLinkActive="active">
+            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+            Dashboard
+          </a>
+          <a class="nav-link" routerLink="/admin/bootcamps" routerLinkActive="active">
+            <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
+            Manage Bootcamp
+          </a>
+          <a class="nav-link" routerLink="/admin/users" routerLinkActive="active">
+            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+            Manage Users
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div id="layoutSidenav_content">
+    <main>
+      <div class="container-fluid px-4 py-5">
+
+        <router-outlet></router-outlet>
+
+      </div>
+    </main>
+    <footer class="py-4 bg-light mt-auto">
+      <div class="container-fluid px-4">
+        <div class="d-flex align-items-center justify-content-between small">
+          <div class="text-muted">Copyright &copy; Moringa School 2022</div>
+          <div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>

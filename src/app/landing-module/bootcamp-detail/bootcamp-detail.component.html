@@ -1,0 +1,48 @@
+<section class="bootcamp mt-5">
+  <div class="container">
+    <div class="row">
+      <!-- Main col -->
+      <div class="col-md-8">
+        <h1>{{bootcamp?.data?.name}}</h1>
+        <!-- Description -->
+        <p>{{bootcamp?.data?.description}}</p>
+        <!-- Avg cost -->
+        <p class="lead mb-4">Average Course Cost: <span class="text-primary">Ksh 10,000</span></p>
+        <!-- Courses -->
+        <div class="card mb-3" *ngFor="let course of bootcamp?.data?.courses">
+          <h5 class="card-header bg-primary text-white">{{course.title}}</h5>
+          <div class="card-body">
+            <h5 class="card-title">Duration: {{course.weeks}} Weeks</h5>
+            <p class="card-text">{{course.description}}</p>
+            <ul class="list-group mb-3">
+              <li class="list-group-item">Cost: {{course.tuition | currency:' Ksh '}}</li>
+              <li class="list-group-item">Skill Required: {{course.minimumSkill}}</li>
+              <li class="list-group-item">Scholarship Available:
+                <i class="fas fa-check text-success" *ngIf="course.scholarshipAvailable"></i>
+                <i class="fas fa-times text-danger" *ngIf="!course.scholarshipAvailable"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div class="col-md-4">
+        <!-- Image -->
+        <img  [src]="serverUrl + '/uploads/' + bootcamp?.data?.photo" class="img-thumbnail" alt="">
+        <!-- Rating -->
+        <h1 class="text-center my-4"><span class="badge badge-secondary badge-success rounded-circle p-3">8.8</span> Rating</h1>
+        <!-- Buttons -->
+        <a href="reviews.html" class="btn btn-dark btn-block my-3"><i class="fas fa-comments"></i>  Read Reviews</a>
+        <a href="add-review.html" class="btn btn-light btn-block my-3"><i class="fas fa-pencil-alt"></i>  Write a Review</a>
+        <a href="#" target="_blank" class="btn btn-secondary btn-block my-3"><i class="fas fa-globe"></i>  Visit Website</a>
+        <!-- Perks -->
+        <ul class="list-group list-group-flush mt-4">
+        <li class="list-group-item"><i class="fas fa-check text-success"></i> Housing</li>
+        <li class="list-group-item"><i class="fas fa-check text-danger"></i> Job Assistance</li>
+        <li class="list-group-item"><i class="fas fa-times text-success"></i> Job Guarantee</li>
+        <li class="list-group-item"><i class="fas fa-check text-success"></i> Accepts GI Bill</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
