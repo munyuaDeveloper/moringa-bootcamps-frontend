@@ -1,0 +1,123 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{data?.modalTitle | titlecase}}</h4>
+    <button class="close border-0" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div id="test-l-2" class="content">
+        <div [formGroup]="createForm" class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 p-0" *ngFor="let control of dynamicFormFields">
+                    <div [ngSwitch]="control.input_type">
+                        <div *ngSwitchCase="'input'">
+                            <div class="form-group">
+                                <label>{{control.label}}</label>
+                                <input [type]="control.type" [formControlName]="control.code"
+                                       class="form-control" [placeholder]="control.place_holder" />
+                                <div
+                                        *ngIf="createForm.get(control.code)!.dirty || createForm.get(control.code)!.touched">
+                                    <small class="text-danger"
+                                           *ngIf="!createForm.get(control.code)!.valid">{{control.code | replaceUnderscore}}
+                                        is required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div  *ngSwitchCase="'multi_select'">
+                            <div  class="form-group">
+<!--                                <ng-select-->
+<!--                                        [items]="control.field_options"-->
+<!--                                        [multiple]=true-->
+<!--                                        [closeOnSelect]="false"-->
+<!--                                        [searchable]="true"-->
+<!--                                        bindLabel="name"-->
+<!--                                        bindValue="id"-->
+<!--                                        placeholder="Select"-->
+<!--                                        [formControlName]="control.code">-->
+
+<!--                                </ng-select>-->
+                            </div>
+
+                        </div>
+                        <div *ngSwitchCase="'date'">
+                            <div class="form-group">
+                                <label>{{control.label}}</label>
+                                <input [type]="control.date" [formControlName]="control.code"
+                                       class="form-control" placeholder="Enter shop name" />
+                                <div
+                                        *ngIf="createForm.get(control.code)!.dirty || createForm.get(control.code)!.touched">
+                                    <small class="text-danger"
+                                           *ngIf="!createForm.get(control.code)!.valid">{{control.code | replaceUnderscore}}
+                                        is required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngSwitchCase="'radio'">
+                            <div class="">
+                                <label>{{control.label}}</label><br>
+                                <div class="form-check form-check-inline"
+                                     *ngFor="let val of control.field_options">
+                                    <input [formControlName]="control.code" class="form-check-input"
+                                           type="radio" [name]="control.code" [id]="val"
+                                           [value]="val.id" />
+                                    <label class="form-check-label">{{val.name | titlecase}}</label>
+                                    <div
+                                            *ngIf="createForm.get(control.code)!.dirty || createForm.get(control.code)!.touched">
+                                        <small class="text-danger"
+                                               *ngIf="!createForm.get(control.code)!.valid">{{control.code | replaceUnderscore}}
+                                            is required</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      <div *ngSwitchCase="'checkbox'" class="form-group form-check">
+                        <input
+                          class="form-check-input"
+                          [type]="control.type"
+                          [name]="control.code"
+                          [formControlName]="control.code"
+                          [id]="control.code"
+                        />
+                        <label class="form-check-label" [for]="control.code">
+                          {{control.label}}
+                        </label>
+                      </div>
+                        <div *ngSwitchCase="'select'">
+                            <div class="form-group">
+                                <label>{{control.label}}</label><br>
+                                <select class="form-control" [formControlName]="control.code">
+                                    <option *ngFor="let val of control.field_options"
+                                            [value]="val">
+                                        {{val | titlecase}}</option>
+                                </select>
+                                <div
+                                        *ngIf="createForm.get(control.code)!.dirty || createForm.get(control.code)!.touched">
+                                    <small class="text-danger"
+                                           *ngIf="!createForm.get(control.code)!.valid">{{control.code | replaceUnderscore}}
+                                        is required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngSwitchCase="'text_area'">
+                            <div class="form-group">
+                                <label>{{control.label}}</label><br>
+                                <textarea [formControlName]="control.code"
+                                          class="form-control" rows="5"
+                                          [placeholder]="control.place_holder">
+
+                                </textarea>
+                                <div
+                                        *ngIf="createForm.get(control.code)!.dirty || createForm.get(control.code)!.touched">
+                                    <small class="text-danger"
+                                           *ngIf="!createForm.get(control.code)!.valid">{{control.code | replaceUnderscore}}
+                                        is required</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button [disabled]="createForm.invalid" (click)="submit()" type="submit" class="btn btn-primary w-100">{{data.modalButtonText}}</button>
+</div>

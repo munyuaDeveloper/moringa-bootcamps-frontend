@@ -1,0 +1,87 @@
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/admin">Dashboard</a></li>
+    <li class="breadcrumb-item"><a routerLink="/admin/bootcamps">Manage Bootcamps</a></li>
+  </ol>
+</nav>
+<section class="container-fluid p-0">
+  <div class="row">
+    <div class="col-md-12 m-auto">
+      <div class="card bg-white py-2 px-4">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-8">
+              <h1 class="mb-4">Manage Bootcamp</h1>
+            </div>
+            <div class="col-sm-4">
+              <button class="btn btn-sm btn-outline-success add-bootcamp-btn m-1"  [routerLink]="['/admin/bootcamps/add-bootcamp', bootcampId]" routerLinkActive="active">Edit Bootcamp</button>
+            </div>
+          </div>
+
+          <div class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img *ngIf="bootcamp?.data?.photo" [src]="serverUrl + '/uploads/' + bootcamp?.data?.photo" class="card-img" alt="..." />
+                <img *ngIf="!bootcamp?.data?.photo" src="assets/img/image_1.jpg" class="card-img" alt="..." />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <a>
+                      {{bootcamp?.data?.name}}
+                      <span class="float-right badge badge-success"
+                      >4.9</span
+                      ></a
+                    >
+                  </h5>
+                  <span class="badge badge-dark mb-2">{{bootcamp?.data?.address}}</span>
+                  <p>{{bootcamp?.data?.description}}</p>
+                  <p class="card-text">
+                    {{bootcamp?.data?.careers?.toString()}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a (click)="openCreateCourseModal(null)" class="btn btn-primary btn-block mb-4"
+          >Add Bootcamp Course</a
+          >
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Duration</th>
+              <th scope="col">Tuition Fee</th>
+              <th scope="col">Minimum Skill</th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let course of bootcamp?.data?.courses">
+              <td>{{course.title | titlecase}}</td>
+              <td>{{course.weeks}} Weeks</td>
+              <td>{{course.tuition | currency: ' Ksh'}}</td>
+              <td>{{course.minimumSkill}}</td>
+              <td style="width: 20%;">
+                <a  (click)="openCreateCourseModal(course)" class="table-link text-info">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                </a>
+                <a  class="table-link danger" (click)="deleteCourse(course)">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+                                            </span>
+                </a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
