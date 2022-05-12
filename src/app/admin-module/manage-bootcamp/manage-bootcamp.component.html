@@ -7,11 +7,11 @@
 <section class="container-fluid p-0">
   <div class="row">
     <div class="col-md-12 m-auto">
-      <div class="card bg-white py-2 px-4">
+      <div class="card bg-white py-2">
         <div class="card-body">
           <div class="row">
             <div class="col-sm-8">
-              <h1 class="mb-4">Manage Bootcamp</h1>
+              <h3 class="mb-4">Manage Bootcamp</h3>
             </div>
             <div class="col-sm-4">
               <button class="btn btn-sm btn-outline-success add-bootcamp-btn m-1"  [routerLink]="['/admin/bootcamps/add-bootcamp', bootcampId]" routerLinkActive="active">Edit Bootcamp</button>
@@ -29,15 +29,15 @@
                   <h5 class="card-title">
                     <a>
                       {{bootcamp?.data?.name}}
-                      <span class="float-right badge badge-success"
-                      >4.9</span
-                      ></a
-                    >
+<!--                      <span class="float-right badge badge-success">4.9</span>-->
+                    </a>
                   </h5>
                   <span class="badge badge-dark mb-2">{{bootcamp?.data?.address}}</span>
                   <p>{{bootcamp?.data?.description}}</p>
-                  <p class="card-text">
-                    {{bootcamp?.data?.careers?.toString()}}
+
+                  <span class="badge badge-dark mb-2">Careers</span>
+                  <p class="card-text m-0" *ngFor="let career of bootcamp?.data?.careers">
+                    >> {{career | titlecase}}
                   </p>
                 </div>
               </div>
@@ -47,7 +47,8 @@
           <a (click)="openCreateCourseModal(null)" class="btn btn-primary btn-block mb-4"
           >Add Bootcamp Course</a
           >
-          <table class="table table-striped">
+          <div class="table-responsive">
+            <table class="table table-striped">
             <thead>
             <tr>
               <th scope="col">Title</th>
@@ -80,6 +81,7 @@
             </tr>
             </tbody>
           </table>
+          </div>
         </div>
       </div>
     </div>

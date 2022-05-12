@@ -4,7 +4,7 @@
       <!-- Main col -->
       <div class="col-md-8">
         <!-- Bootcamps -->
-        <div class="card mb-3" *ngFor="let bootcamp of bootcamps.data">
+        <div class="card mb-3" *ngFor="let bootcamp of bootcamps?.data">
           <div class="row no-gutters">
             <div class="col-md-4">
               <img  [src]="serverUrl + '/uploads/' + bootcamp?.photo" class="card-img" alt="..." />

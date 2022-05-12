@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ListInterface} from "../../shared/interface";
 import {SharedService} from "../../shared/services/shared.service";
 import {BootcampApis} from "../../shared/services/apis";
@@ -13,6 +13,7 @@ import {environment} from "../../../environments/environment";
 export class BootcampsComponent implements OnInit {
   serverUrl = environment.API_SERVICE_URL;
   bootcamps!: ListInterface;
+  @Output() bootcampOutput = new EventEmitter<ListInterface>();
 
   constructor(private sharedService: SharedService,
               private messageService: MessageService) { }
@@ -23,6 +24,7 @@ export class BootcampsComponent implements OnInit {
   getBootcamps(): void {
     this.sharedService.getData(BootcampApis._bootcampsList).subscribe(res => {
       this.bootcamps = res as ListInterface;
+      this.bootcampOutput.emit(this.bootcamps);
     })
   }
   deleteBootcamp(bootcampId: string): void {

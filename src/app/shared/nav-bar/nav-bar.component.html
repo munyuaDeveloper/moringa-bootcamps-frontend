@@ -34,9 +34,9 @@
             <button type="button" class="btn btn-outline me-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Account</button>
             <div ngbDropdownMenu aria-labelledby="dropdownManual">
               <button ngbDropdownItem routerLink="/admin/bootcamps" routerLinkActive="active">Manage Bootcamp</button>
-              <button ngbDropdownItem>Manage Reviews</button>
-              <button ngbDropdownItem>Manage Account</button>
-              <button ngbDropdownItem>Logout</button>
+<!--              <button ngbDropdownItem>Manage Reviews</button>-->
+<!--              <button ngbDropdownItem>Manage Account</button>-->
+<!--              <button ngbDropdownItem>Logout</button>-->
             </div>
           </div>
         </li>
@@ -46,4 +46,28 @@
       </ul>
     </div>
   </div>
+</nav>
+
+<!-- Bottom Navbar -->
+<nav class="navbar bottom-menu navbar-expand fixed-bottom border-top d-md-none d-lg-none d-xl-none p-0" style="background-color: #e3f2fd; color: #fc7529">
+  <ul class="navbar-nav nav-justified w-100">
+    <li class="nav-item">
+      <a routerLink="/home" routerLinkActive="active" class="nav-link text-center">
+        <i class="fa fa-home"></i>
+        <span class="small d-block">Home</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/categories" routerLinkActive="active" class="nav-link text-center">
+        <i class="fa fa-list"></i>
+        <span class="small d-block">Bootcamps</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-center" routerLink="/admin" routerLinkActive="active">
+        <i class="fa fa-user"></i>
+        <span class="small d-block">Manage </span>
+      </a>
+    </li>
+  </ul>
 </nav>
