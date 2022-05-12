@@ -9,6 +9,7 @@ import {ToastrModule} from "ngx-toastr";
 import {ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ErrorInterceptor} from "./shared/services/error-interceptor.service";
+import {NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule} from "ngx-ui-loader";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,9 @@ import {ErrorInterceptor} from "./shared/services/error-interceptor.service";
         preventDuplicates: true,
       }
     ),
+    NgxUiLoaderModule,
+    NgxUiLoaderRouterModule.forRoot({ showForeground: true }),
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true })
   ],
   providers: [
     {
