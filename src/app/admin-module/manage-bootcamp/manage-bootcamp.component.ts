@@ -118,7 +118,12 @@ export class ManageBootcampComponent implements OnInit {
         modalButtonText: 'Save Changes',
         others: previousData
       }
-      this.updateFieldOption(this.formFields, 'value', 'name', previousData.name);
+      this.updateFieldOption(this.formFields, 'value', 'title', previousData.title);
+      this.updateFieldOption(this.formFields, 'value', 'weeks', previousData.weeks);
+      this.updateFieldOption(this.formFields, 'value', 'tuition', previousData.tuition);
+      this.updateFieldOption(this.formFields, 'value', 'minimumSkill', previousData.minimumSkill);
+      this.updateFieldOption(this.formFields, 'value', 'scholarhipsAvailable', previousData.scholarhipsAvailable);
+      this.updateFieldOption(this.formFields, 'value', 'description', previousData.description);
     }else {
       data = {
         formFields: this.formFields,
