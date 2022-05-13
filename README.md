@@ -1,27 +1,74 @@
-# MoringaBootcampsFrontend
+# Moringa Bootcamps Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
+[Live Application](https://moringa-bootcamps-frontend.herokuapp.com/)
 
-## Development server
+> This is the UI implementation of Moringa Bootcamps backend that allows user to Create Read Update and Delete bootcamps. The project is created using Angular 12 to implement the UI that consume the [Moringa Bootcamps APIs ](https://github.com/munyuaDeveloper/moringa_school_api.git) APIs
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Prerequisites
 
-## Code scaffolding
+This project requires NodeJS (version 14 or later) and NPM.
+[Node](http://nodejs.org/), [NPM](https://npmjs.org/) and [Angular](https://angular.io/) are really easy to install.
+To make sure you have them available on your machine,
+try running the following command.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```sh
+$ npm -v && node -v && ng --version
+6.14.13
+v14.17.0
+12.2.10
+```
 
-## Build
+## Table of contents
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- [Project Name](#project-name)
+    - [Prerequisites](#prerequisites)
+    - [Table of contents](#table-of-contents)
+    - [Getting Started](#getting-started)
+    - [Installation](#installation)
+    - [Environment Variables](#configure-your-env-variables)
+    - [Authors](#authors)
 
-## Running unit tests
+## Getting Started
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-## Running end-to-end tests
+## Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**BEFORE YOU INSTALL:** please read the [prerequisites](#prerequisites)
 
-## Further help
+Start with cloning this repo on your local machine:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```sh
+$ git clone https://github.com/munyuaDeveloper/moringa-bootcamps-frontend.git 
+$ cd moringa-bootcamps-frontend
+```
+
+To install and set up the library, run:
+
+```sh
+$ npm install
+```
+
+Or if you prefer using Yarn:
+
+```sh
+$ yarn add
+```
+## configure-your-env-variables
+Make sure that the url in both environment.ts and environment.prod.ts is the correct backend url.
+
+```sh
+ API_SERVICE_URL: 'https://moringa-bootcamp-api.herokuapp.com'
+```
+
+## Usage
+
+### Serving the app
+
+```sh
+$ npm run dev
+```
+
+## Author
+
+* **Peter Munyua** - [munyuaDeveloper](https://github.com/munyuaDeveloper)
